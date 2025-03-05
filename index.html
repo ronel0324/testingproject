@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IP Services</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+    <!-- Navbar -->
+    <nav class="bg-green-200 p-4 flex justify-between items-center">
+        <button class="text-2xl">&#9776;</button>
+        <input type="text" placeholder="Search" class="px-2 py-1 border rounded-md">
+        <span class="text-xl">&#128100;</span>
+    </nav>
+    
+    <!-- Main Section -->
+    <div class="p-8">
+        <h1 class="text-3xl font-bold">IP SERVICES</h1>
+        
+        <!-- Buttons -->
+        <div class="mt-4 flex gap-4">
+            <button class="border px-4 py-2" onclick="showContent('copyright')">COPYRIGHT</button>
+            <button class="border px-4 py-2" onclick="showContent('patent')">PATENT</button>
+            <button class="border px-4 py-2" onclick="showContent('trademark')">TRADEMARK</button>
+            <button class="border px-4 py-2" onclick="showContent('industrial_design')">INDUSTRIAL DESIGN</button>
+            <button class="border px-4 py-2" onclick="showContent('utility_model')">UTILITY MODEL</button>
+        </div>
+        
+        <!-- Content Box -->
+        <div id="content-box" class="border-2 border-blue-300 h-64 mt-6 p-4 text-gray-700 overflow-auto">
+            Click a button to display content here.
+        </div>
+    </div>
+
+    <!-- About Us Section -->
+    <div class="p-8">
+        <h2 class="text-xl font-bold">About Us</h2>
+        <p class="mt-2 text-gray-700">
+            Writing effectively is an art. Start by using simple, everyday words people can easily understand. Be clear and direct to the point...
+        </p>
+    </div>
+
+    <script>
+        function showContent(type) {
+            const contentBox = document.getElementById('content-box');
+            const contents = {
+                'copyright': '<p>Copyright protects original works of authorship such as books, music, and art.</p>' + 
+                             '<button onclick="showForm()" class="mt-2 px-4 py-2 bg-blue-500 text-white">Apply</button>',
+                'patent': '<p>A patent grants the inventor exclusive rights to an invention for a certain period.</p>' + 
+                          '<button onclick="showForm()" class="mt-2 px-4 py-2 bg-blue-500 text-white">Apply</button>',
+                'trademark': '<p>A trademark is a recognizable sign or logo that identifies a brand or product.</p>' + 
+                             '<button onclick="showForm()" class="mt-2 px-4 py-2 bg-blue-500 text-white">Apply</button>',
+                'industrial_design': '<p>Industrial Design refers to the aesthetic aspects of a product.</p>' + 
+                                     '<button onclick="showForm()" class="mt-2 px-4 py-2 bg-blue-500 text-white">Apply</button>',
+                'utility_model': '<p>Utility Models provide protection for minor inventions and innovations.</p>' + 
+                                 '<button onclick="showForm()" class="mt-2 px-4 py-2 bg-blue-500 text-white">Apply</button>'
+            };
+            contentBox.innerHTML = contents[type] || 'No content available.';
+        }
+
+        function showForm() {
+            const contentBox = document.getElementById('content-box');
+            contentBox.innerHTML = '<h3 class="text-lg font-bold">Application Form</h3>' +
+                                   '<label class="block mt-2">Name:</label>' +
+                                   '<input type="text" class="border px-2 py-1 w-full">' +
+                                   '<label class="block mt-2">Email:</label>' +
+                                   '<input type="email" class="border px-2 py-1 w-full">' +
+                                   '<label class="block mt-2">Description:</label>' +
+                                   '<textarea class="border px-2 py-1 w-full"></textarea>' +
+                                   '<button class="mt-2 px-4 py-2 bg-green-500 text-white">Submit</button>';
+        }
+    </script>
+</body>
+</html>
